@@ -15,6 +15,7 @@ class Catalog(object):
     def add_items(self):
         item_add = raw_input('What item would you like to buy?: ')
         item_quantity = raw_input("How many would you like to buy?: ")
+        print item_add.on_hand
         try:
             if item_quantity < item_add.on_hand:
                 for self.name in self.catalog:
@@ -26,7 +27,7 @@ class Catalog(object):
 
 #  This will create a basic profile for users. Later in the program buyers/sellers will be distinguished
 
-class Profile(object):
+class Profile(Catalog):
     def __init__(self, first_name, last_name, money, password):
         self.first_name = first_name
         self.last_name = last_name
@@ -83,8 +84,8 @@ walmart.catalog = {
             103: InventoryItem('mop', 8, 9.85),
         }
 
-print walmart.add_items()
-print walmart.catalog[101].name
+walmart.add_items()
+# print walmart.catalog[101].name
 
 # for index, items in walmart.catalog.items():
 #     print index, str(items['qty']), str(items['price'])
